@@ -57,7 +57,9 @@ namespace TJAPlayer3
 			Trace.TraceInformation( "結果ステージを活性化します。" );
 			Trace.Indent();
 			try
-			{
+			{	
+				TJAPlayer3.stage演奏ドラム画面.tリプレイ情報を初期化();
+				
 				#region [ 初期化 ]
 				//---------------------
 				this.eフェードアウト完了時の戻り値 = E戻り値.継続;
