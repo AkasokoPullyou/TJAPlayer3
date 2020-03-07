@@ -16,7 +16,7 @@ namespace TJAPlayer3
 {
     internal class CDTX : CActivity
     {
-        // 定数
+        // 定数２
 
         public enum E種別 { DTX, GDA, G2D, BMS, BME, SMF }
 
