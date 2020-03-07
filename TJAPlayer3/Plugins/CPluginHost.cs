@@ -11,7 +11,7 @@ namespace TJAPlayer3
 {
 	internal class CPluginHost : IPluginHost
 	{
-		// コンストラクタ
+		// コンストラクタs
 
 		public CPluginHost()
 		{
