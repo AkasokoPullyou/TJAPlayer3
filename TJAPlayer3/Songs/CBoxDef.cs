@@ -9,7 +9,7 @@ namespace TJAPlayer3
 {
 	internal class CBoxDef
 	{
-		// プロパティ
+		// プロパティs
 
 		public Color Color;
 		public string Genre;
