@@ -13,6 +13,21 @@ namespace FDK
     /// 2.CCounterを生成
     ///   ctCounter = new CCounter( 0, 3, 10, CDTXMania.Timer );
     /// 3.進行メソッドを使用する。
+    /// 4.ウマー。using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace FDK
+{
+	/// <summary>
+	/// 一定間隔で単純増加する整数（カウント値）を扱う。
+	/// </summary>
+    /// <remarks>
+    /// ○使い方
+    /// 1.CCounterの変数をつくる。
+    /// 2.CCounterを生成
+    ///   ctCounter = new CCounter( 0, 3, 10, CDTXMania.Timer );
+    /// 3.進行メソッドを使用する。
     /// 4.ウマー。
     ///
     /// double値を使う場合、t進行db、t進行LoopDbを使うこと。
@@ -211,6 +226,9 @@ namespace FDK
 		{
 			if ( ( this.timerdb != null ) && ( this.db現在の経過時間 != CSoundTimer.n未使用 ) )
 			{
+				if (this.db間隔 <= 0)
+					this.db間隔 = -this.db間隔;
+
 				double num = this.timerdb.n現在時刻;
 				if ( num < this.db現在の経過時間 )
 					this.db現在の経過時間 = num;
@@ -258,6 +276,9 @@ namespace FDK
 		{
 			if ( ( this.timerdb != null ) && ( this.db現在の経過時間 != CSoundTimer.n未使用 ) )
 			{
+				if (this.db間隔 <= 0)
+					this.db間隔 = -this.db間隔;
+
 				double num = this.timerdb.n現在時刻;
 				if ( num < this.n現在の経過時間ms )
 					this.db現在の経過時間 = num;
@@ -278,6 +299,9 @@ namespace FDK
 		/// </summary>
 		public void t停止()
 		{
+			if (this.db間隔 <= 0)
+				this.db間隔 = -this.db間隔;
+
 			this.n現在の経過時間ms = CTimer.n未使用;
             this.db現在の経過時間 = CSoundTimer.n未使用;
 		}
@@ -346,7 +370,7 @@ namespace FDK
 		//-----------------
 		private CTimer timer;
         private CSoundTimer timerdb;
-        private double db間隔;
+		private double db間隔;
 		//-----------------
 		#endregion
 	}
