@@ -301,7 +301,8 @@ namespace TJAPlayer3
 
 
         // プロパティ
-
+	
+	public Cシステムサウンド sound数字回転音 = null;
         public Cシステムサウンド bgmオプション画面 = null;
         public Cシステムサウンド bgmコンフィグ画面 = null;
         public Cシステムサウンド bgm起動画面 = null;
@@ -602,6 +603,8 @@ namespace TJAPlayer3
                     this[i].Dispose();
                 }
             }
+	    
+	    this.sound数字回転音 = new Cシステムサウンド(@"Sounds\Rotation.ogg", true, true, false, ESoundGroup.SoundEffect);
             this.soundカーソル移動音 = new Cシステムサウンド(@"Sounds\Move.ogg", false, false, false, ESoundGroup.SoundEffect);
             this.sound決定音 = new Cシステムサウンド(@"Sounds\Decide.ogg", false, false, false, ESoundGroup.SoundEffect);
             this.sound変更音 = new Cシステムサウンド(@"Sounds\Change.ogg", false, false, false, ESoundGroup.SoundEffect);
@@ -2239,7 +2242,30 @@ namespace TJAPlayer3
                                     Result_NamePlate_Y[i] = int.Parse(strSplit[i]);
                                 }
                             }
-
+		            else if (strCommand == "NumberRotationSpeed")
+			{
+				dbNumberRotationSpeed =  Convert.ToDouble(strParam);
+			}
+			else if (strCommand == "ScoreWaitingTime")
+			{
+				dbScoreWaitingTime = Convert.ToDouble(strParam);
+			}
+			else if (strCommand == "ScoreEndTime")
+			{
+				dbScoreEndTime = Convert.ToDouble(strParam);
+			}
+			else if (strCommand == "ScoreAnimeStartValue")
+			{
+				nScoreAnimeStartValue = Convert.ToInt32(strParam);
+			}
+			else if (strCommand == "ScoreEndValueOfWaitingTime")
+			{
+				nScoreEndValueOfWaitingTime = Convert.ToInt32(strParam);
+			}
+			else if (strCommand == "ScoreEndValueOfEndTime")
+			{
+				nScoreEndValueOfEndTime = Convert.ToInt32(strParam);
+		     	}
                             else if (strCommand == nameof(Result_Dan))
                             {
                                 Result_Dan = strParam.Split(',').Select(int.Parse).ToArray();
@@ -2721,6 +2747,13 @@ namespace TJAPlayer3
         public int[] Result_Dan = new int[] { 500, 500 };
         public int[] Result_Dan_XY = new int[] { 100, 0 };
         public int[] Result_Dan_Plate_XY = new int[] { 149, 416 };
+	
+	public int nScoreAnimeStartValue = 1500;
+	public double dbNumberRotationSpeed = 1.3D;
+	public double dbScoreWaitingTime = 16.35D;
+	public double dbScoreEndTime = 16D;
+	public int nScoreEndValueOfWaitingTime = 32;
+	public int nScoreEndValueOfEndTime = 36;
         #endregion
         #region Font
         public int Font_Edge_Ratio = 30;
