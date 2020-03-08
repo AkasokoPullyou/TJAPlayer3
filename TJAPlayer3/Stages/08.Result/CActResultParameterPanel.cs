@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using SlimDX;
 using FDK;
+using System.Linq;
 
 namespace TJAPlayer3
 {
